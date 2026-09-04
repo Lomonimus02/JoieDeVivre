@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+  --color-background: oklch(97.23% 0.0157 88.5);
+  --color-foreground: oklch(23.12% 0.0451 262.5);
+  --color-ink: oklch(23.12% 0.0451 262.5);
+  --color-card: oklch(98.91% 0.0089 88.5);
+  --color-card-foreground: oklch(23.12% 0.0451 262.5);
+  --color-primary: oklch(23.12% 0.0451 262.5);
+  --color-primary-foreground: oklch(97.23% 0.0157 88.5);
+  --color-secondary: oklch(94.12% 0.0221 79.5);
+  --color-secondary-foreground: oklch(23.12% 0.0451 262.5);
+  --color-muted: oklch(94.12% 0.0221 79.5);
+  --color-muted-foreground: oklch(51.82% 0.0345 264.2);
+  --color-accent: oklch(68.35% 0.0765 82.4);
+  --color-accent-foreground: oklch(23.12% 0.0451 262.5);
+  --color-gold: oklch(68.35% 0.0765 82.4);
+  --color-gold-soft: oklch(84.12% 0.0489 84.6);
+  --color-blush: oklch(90.12% 0.0331 21.4);
+  --color-blush-deep: oklch(77.89% 0.0672 18.9);
+  --color-champagne: oklch(94.12% 0.0221 79.5);
+  --color-border: oklch(23.12% 0.0451 262.5 / 0.12);
+  --color-input: oklch(23.12% 0.0451 262.5 / 0.16);
+  --color-ring: oklch(68.35% 0.0765 82.4);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-primary);
+  }
+
+  input,
+  textarea,
+  select {
+    border-radius: 0;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+@utility rule-gold {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold),
+    transparent
+  );
+}
+
+@utility rise {
+  animation: jdv-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes jdv-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
